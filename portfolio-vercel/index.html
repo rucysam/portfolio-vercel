@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>사업PM 포트폴리오</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="is-loading">
+  <header class="header">
+    <div class="header__inner">
+      <a href="#about" class="logo" id="logo">PORTFOLIO</a>
+      <nav class="tabs" role="tablist">
+        <button class="tab" data-tab="about" role="tab">자기소개</button>
+        <button class="tab" data-tab="activities" role="tab">준비 활동</button>
+        <button class="tab" data-tab="games" role="tab">플레이한 게임</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- 1. 자기소개 -->
+    <section class="panel" id="panel-about" data-panel="about">
+      <div class="hero">
+        <img class="hero__photo" id="profile-photo" alt="프로필 사진" />
+        <div class="hero__text">
+          <p class="hero__role" id="profile-role"></p>
+          <h1 class="hero__name" id="profile-name"></h1>
+          <p class="hero__headline" id="profile-headline"></p>
+          <ul class="contact" id="profile-contact"></ul>
+        </div>
+      </div>
+
+      <h2 class="section-title">핵심 역량</h2>
+      <div class="skills" id="profile-skills"></div>
+
+      <h2 class="section-title">소개</h2>
+      <div class="intro" id="profile-intro"></div>
+
+      <h2 class="section-title">왜 사업PM인가</h2>
+      <div class="intro" id="profile-why"></div>
+    </section>
+
+    <!-- 2. 준비 활동 -->
+    <section class="panel" id="panel-activities" data-panel="activities">
+      <h2 class="section-title">사업PM 취업을 위해 한 활동</h2>
+      <div class="filters" id="activity-filters"></div>
+      <ol class="timeline" id="activity-list"></ol>
+    </section>
+
+    <!-- 3. 플레이한 게임 -->
+    <section class="panel" id="panel-games" data-panel="games">
+      <h2 class="section-title">내가 플레이한 게임</h2>
+      <div class="game-stats" id="game-stats"></div>
+      <div class="filters" id="game-filters"></div>
+      <div class="game-grid" id="game-list"></div>
+    </section>
+  </main>
+
+  <!-- 게임 상세 모달 -->
+  <div class="modal" id="game-modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__box" role="dialog" aria-modal="true">
+      <button class="modal__close" data-close aria-label="닫기">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="footer" id="footer"></footer>
+
+  <!-- 데이터 → 렌더링 순서 중요 -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

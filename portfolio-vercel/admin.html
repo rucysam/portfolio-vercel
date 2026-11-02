@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>포트폴리오 관리</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin">
+  <!-- 로그인 -->
+  <section class="login" id="login">
+    <form class="login__box" id="login-form">
+      <p class="logo">ADMIN</p>
+      <h1>포트폴리오 관리</h1>
+      <input type="password" id="login-pw" placeholder="관리자 비밀번호" autocomplete="current-password" required />
+      <button class="btn btn--primary" type="submit">로그인</button>
+      <p class="login__msg" id="login-msg"></p>
+      <button class="btn btn--ghost" type="button" id="preview-mode" hidden>미리보기 모드로 체험하기</button>
+    </form>
+  </section>
+
+  <!-- 편집기 -->
+  <div class="editor" id="editor" hidden>
+    <header class="header">
+      <div class="header__inner">
+        <a href="index.html" class="logo site-link">ADMIN</a>
+        <nav class="tabs" role="tablist">
+          <button class="tab is-active" data-tab="profile">자기소개</button>
+          <button class="tab" data-tab="activities">준비 활동</button>
+          <button class="tab" data-tab="games">게임</button>
+          <button class="tab" data-tab="settings">저장 기록</button>
+        </nav>
+        <div class="actions">
+          <span class="status" id="status"></span>
+          <a class="btn btn--ghost site-link" href="index.html">사이트 보기</a>
+          <button class="btn btn--primary" id="save">저장</button>
+        </div>
+      </div>
+    </header>
+    <p class="mode-banner" id="mode-banner" hidden>
+      미리보기 모드 — 저장 내용은 이 브라우저에만 보관됩니다. 실제 반영은 Vercel 배포 후 가능합니다.
+    </p>
+    <main class="main" id="form-root"></main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
