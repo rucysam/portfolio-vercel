@@ -1,0 +1,113 @@
+/* ===== 관리자 페이지 전용 스타일 (style.css 위에 덧씌움) ===== */
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  border-radius: 10px; padding: 9px 16px; font-size: 14px; font-weight: 700;
+  border: 1px solid var(--line); background: var(--surface-2); color: var(--text);
+  text-decoration: none; transition: .2s; white-space: nowrap;
+}
+.btn:hover { border-color: var(--accent); }
+.btn--primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn--primary:hover { filter: brightness(1.1); }
+.btn--ghost { background: transparent; }
+.btn--danger { color: #ff7a7a; }
+.btn--danger:hover { border-color: #ff7a7a; }
+.btn--sm { padding: 5px 10px; font-size: 12px; border-radius: 8px; }
+.btn:disabled { opacity: .5; cursor: default; }
+
+/* 로그인 */
+.login { min-height: 100vh; display: grid; place-items: center; padding: 20px; }
+.login__box {
+  width: 100%; max-width: 360px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 32px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.login__box h1 { font-size: 22px; margin-bottom: 8px; }
+.login__msg { color: #ff9a9a; font-size: 13px; min-height: 1em; }
+
+/* 상단 바 */
+.admin .header__inner { max-width: 1100px; flex-wrap: wrap; }
+.actions { display: flex; align-items: center; gap: 8px; }
+.status { font-size: 12px; color: var(--text-sub); }
+.status.is-dirty { color: var(--accent-2); }
+.mode-banner {
+  background: rgba(255, 181, 71, .12); color: var(--accent-2);
+  text-align: center; font-size: 13px; padding: 8px 16px;
+}
+
+/* 폼 */
+.form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 18px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field--full { grid-column: 1 / -1; }
+.field__label { font-size: 13px; font-weight: 700; color: var(--text-sub); }
+.field__hint { font-weight: 400; color: #6b7287; margin-left: 6px; }
+.admin input[type="text"], .admin input[type="password"], .admin input[type="url"], .admin textarea {
+  width: 100%; background: var(--bg); color: var(--text);
+  border: 1px solid var(--line); border-radius: 10px;
+  padding: 10px 12px; font: inherit; font-size: 14px;
+}
+.admin textarea { min-height: 90px; resize: vertical; line-height: 1.6; }
+.admin input:focus, .admin textarea:focus { outline: none; border-color: var(--accent); }
+
+.pairs { display: flex; flex-direction: column; gap: 8px; }
+.pair { display: grid; grid-template-columns: 1fr 2fr auto; gap: 8px; }
+
+.images { display: flex; flex-wrap: wrap; gap: 10px; }
+.img-item {
+  position: relative; width: 150px; aspect-ratio: 16 / 9; border-radius: 8px;
+  overflow: hidden; background: var(--surface-2); border: 1px solid var(--line);
+}
+.img-item img { width: 100%; height: 100%; object-fit: cover; }
+.img-item__badge {
+  position: absolute; left: 6px; top: 6px; font-size: 10px; font-weight: 700;
+  background: var(--accent); color: #fff; padding: 1px 6px; border-radius: 4px;
+}
+.img-item__tools { position: absolute; right: 4px; top: 4px; display: flex; gap: 4px; }
+.img-item__tools button {
+  width: 24px; height: 24px; border-radius: 6px; border: 0;
+  background: rgba(0, 0, 0, .65); color: #fff; font-size: 12px;
+}
+.img-item--round { width: 110px; aspect-ratio: 1; border-radius: 50%; }
+.img-add {
+  width: 150px; aspect-ratio: 16 / 9; border-radius: 8px; border: 1px dashed var(--line);
+  display: grid; place-items: center; color: var(--text-sub); font-size: 13px; cursor: pointer;
+  text-align: center; padding: 6px;
+}
+.img-add:hover { border-color: var(--accent); color: var(--accent); }
+.img-add input { display: none; }
+.img-add.is-busy { pointer-events: none; opacity: .6; }
+
+/* 항목 카드 (활동/게임) */
+.list-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 18px; }
+.list-head .section-title { margin: 0; }
+.item { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 12px; }
+.item__head { display: flex; align-items: center; gap: 10px; padding: 14px 16px; cursor: pointer; }
+.item__thumb { width: 64px; aspect-ratio: 16 / 9; border-radius: 6px; object-fit: cover; background: var(--surface-2); flex-shrink: 0; }
+.item__summary { flex: 1; min-width: 0; }
+.item__title { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.item__sub { font-size: 12px; color: var(--text-sub); }
+.item__tools { display: flex; gap: 4px; }
+.item__body { padding: 4px 16px 18px; border-top: 1px solid var(--line); padding-top: 16px; }
+.item:not(.is-open) .item__body { display: none; }
+.caret { color: var(--text-sub); transition: transform .2s; }
+.item.is-open .caret { transform: rotate(90deg); }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; margin-bottom: 14px; }
+.card p { color: var(--text-sub); font-size: 14px; margin-bottom: 12px; }
+.version { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.version:last-child { border-bottom: 0; }
+
+.toast {
+  position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px);
+  background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 10px;
+  font-size: 14px; font-weight: 700; opacity: 0; pointer-events: none; transition: .25s; z-index: 200;
+}
+.toast.is-show { opacity: 1; transform: translate(-50%, 0); }
+.toast.is-error { background: #ff7a7a; }
+
+@media (max-width: 680px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .pair { grid-template-columns: 1fr; }
+  .actions { width: 100%; justify-content: flex-end; }
+  .item__tools .btn--sm:not(.btn--danger) { display: none; }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>사업PM 포트폴리오</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="is-loading">
+  <!-- 서버에 저장된 내용이 없을 때만 보이는 안내 (첫 저장 후 자동으로 숨김) -->
+  <div class="preview-bar" id="preview-bar" hidden>
+    샘플 내용입니다 · <a href="admin.html">관리자 페이지에서 내 내용 입력하기 →</a>
+  </div>
+
+  <div id="site">
+    <!-- ① 상단 메뉴 -->
+    <header class="header">
+      <div class="header__inner">
+        <a href="#about" class="logo" id="logo">PORTFOLIO</a>
+        <nav class="tabs" role="tablist">
+          <button class="tab" data-tab="about" role="tab">자기소개</button>
+          <button class="tab" data-tab="activities" role="tab">준비 활동</button>
+          <button class="tab" data-tab="games" role="tab">플레이한 게임</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- ② 자기소개 탭 -->
+      <section class="panel" data-panel="about">
+        <div class="hero">
+          <img class="hero__photo" id="profile-photo" alt="프로필 사진" />
+          <div class="hero__text">
+            <p class="hero__role" id="profile-role"></p>
+            <h1 class="hero__name" id="profile-name"></h1>
+            <p class="hero__headline" id="profile-headline"></p>
+            <ul class="contact" id="profile-contact"></ul>
+          </div>
+        </div>
+
+        <h2 class="section-title">핵심 역량</h2>
+        <div class="skills" id="profile-skills"></div>
+
+        <h2 class="section-title">소개</h2>
+        <div class="intro" id="profile-intro"></div>
+
+        <h2 class="section-title">왜 사업PM인가</h2>
+        <div class="intro" id="profile-why"></div>
+      </section>
+
+      <!-- ③ 준비 활동 탭 -->
+      <section class="panel" data-panel="activities">
+        <h2 class="section-title">사업PM 취업을 위해 한 활동</h2>
+        <div class="filters" id="activity-filters"></div>
+        <ol class="timeline" id="activity-list"></ol>
+      </section>
+
+      <!-- ④ 플레이한 게임 탭 -->
+      <section class="panel" data-panel="games">
+        <h2 class="section-title">내가 플레이한 게임</h2>
+        <div class="game-stats" id="game-stats"></div>
+        <div class="filters" id="game-filters"></div>
+        <div class="game-grid" id="game-list"></div>
+      </section>
+    </main>
+
+    <!-- ⑤ 게임 상세 팝업 -->
+    <div class="modal" id="game-modal" aria-hidden="true">
+      <div class="modal__backdrop" data-close></div>
+      <div class="modal__box" role="dialog" aria-modal="true">
+        <button class="modal__close" data-close aria-label="닫기">✕</button>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
+    <!-- ⑥ 하단 -->
+    <footer class="footer" id="footer"></footer>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
